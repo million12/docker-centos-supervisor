@@ -40,13 +40,15 @@ This container is configured to run your service(s) both in interactive and non-
 
 #### Controlling supervisord
 
-Supervisord is configured so it uses socket in /data/run/supervisord.sock. Therefore, when using data-only containers you can control it from other container, which has supervisorctl client installed. For instance:  
+Supervisord is configured so it uses socket in /data/run/supervisord.sock. Therefore, when using data-only containers you can control it from other container, which has supervisorctl client installed.  
+For instance, you can run your app as usually:  
 ```
-# Run your web app as usually:
 docker run -d -v /data --name=web-data busybox
 docker run -d --volumes-from=web-data -p=80:80 million12/nginx
+```
 
-# Now run any interactive container (with supervisorctl client installed):
+Now run any interactive container (with supervisorctl client installed):  
+```
 docker run -ti --volumes-from=web-data million12/centos
 $ supervisorctl status nginx
 $ supervisorctl tail nginx
