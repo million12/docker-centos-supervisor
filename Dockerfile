@@ -5,18 +5,12 @@ MAINTAINER Marcin Ryzycki marcin@m12.io, Przemyslaw Ozgo linux@ozgo.info
 # - Install EPEL & Remi yum repository
 # - Install supervisord (via python's easy_install - it has the newest 3.x version)
 RUN \
-  yum install -y wget yum-utils && \
-
-  wget -q http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-1.noarch.rpm http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && \
-  rpm -Uvh remi-release-*.rpm epel-release-*.rpm && \
-  rm -f remi-release-*.rpm epel-release-*.rpm && \
-  
-  yum-config-manager -q --enable remi && \
-
+  yum install -y epel-release wget yum-utils python-setuptools which vim-minimal tar && \
   yum update -y && \
-
-  yum install -y python-setuptools which vim-minimal tar && \
   yum clean all && \
+  
+  rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && \
+  yum-config-manager -q --enable remi && \
 
   easy_install supervisor && \
   mkdir -p /etc/supervisord.d /var/log/supervisor
