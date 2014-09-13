@@ -1,15 +1,12 @@
 # CentOS-7 with supervisord launcher
 
-This is a CentOS-7 docker image used as a base image for other MILLION12 container. It is available on Docker registry as [million12/centos](https://registry.hub.docker.com/u/million12/centos/). This image is based on official [centos:centos7](https://registry.hub.docker.com/_/centos/) and it adds only ca. 20MB on top of it.
+This is a CentOS-7 Docker [million12/centos-supervisor](https://registry.hub.docker.com/u/million12/centos-supervisor/) image, perfect in case when you need to launch more then one process inside a container. This image is based on official [centos:centos7](https://registry.hub.docker.com/_/centos/) and it adds only ca. 20MB on top of it.
 
 Things included:
-
-##### - yum: EPEL and Remi repos included/enabled
 
 ##### - init scripts
 
 Add your .sh scripts to `/config/init` to have them executed when container starts. The bootstrap script is configured to run them just before supervisord starts. See [million12/nginx](https://github.com/million12/docker-nginx) for examples.
-
 
 ##### - supervisord
 
@@ -24,10 +21,10 @@ The `/data` directory is meant to be used to simply and easily deploy web applic
 
 Recommended structure:  
 ```
-/data/run/ # pid, sockets to easily control running services (e.g. supervisord)
+/data/run/ # pid, sockets
 /data/conf/ # extra configs for your services
 /data/logs/ # logs
-/data/www/ # you application data
+/data/www/ # your web application data
 ```
 
 
@@ -35,8 +32,8 @@ Recommended structure:
 
 This container is configured to run your service(s) both in interactive and non-interactive mode (see [bootstrap.sh](config/init/bootstrap.sh) script).
   
-`docker run -it million12/centos` (interactive)  
-`docker run -d million12/centos` (detached, non-interactive)
+`docker run -it million12/centos-supervisor` (interactive)  
+`docker run -d million12/centos-supervisor` (detached, non-interactive)
 
 #### Controlling supervisord
 
@@ -49,18 +46,20 @@ docker run -d --volumes-from=web-data -p=80:80 million12/nginx
 
 Now run any interactive container (with supervisorctl client installed):  
 ```
-docker run -ti --volumes-from=web-data million12/centos
+docker run -ti --volumes-from=web-data million12/centos-supervisor
 $ supervisorctl status nginx
 $ supervisorctl tail nginx
 ```
 
+
 ## Build
 
-`docker build --tag=million12/centos`
+`docker build --tag=million12/centos-supervisor`
 
 
 ## Author
 
 Author: ryzy (<marcin@m12.io>)  
-Author: pozgo (<linux@ozgo.info>)  
-This work is significantly inspired by [maxexcloo](https://github.com/maxexcloo)'s work on his [docker images](https://github.com/maxexcloo/Docker).
+Author: pozgo (<linux@ozgo.info>)
+
+This work is also inspired by [maxexcloo](https://github.com/maxexcloo)'s work on his [docker images](https://github.com/maxexcloo/Docker). Thanks!
