@@ -15,6 +15,12 @@ Just add you supervisord config(s) to `/etc/supervisor.d/` directory to launch y
 
 Learn more about about [supervisord inside containers on official Docker documentation](https://docs.docker.com/articles/using_supervisord/).
 
+##### - error logging
+
+Logfile for supervisord is switched off to avoid logging inside container. Instead, all logs are easily available via `docker logs [container name]`.
+
+This is probably the best approach if you'd like to source your logs from outside the container via `docker logs` (also via CoreOS `journald') and you don't want to worry about logging and log management inside your container and/or data volume.
+
 ##### - /data volume
 
 The `/data` directory is meant to be used to simply and easily deploy web applications using a volume binding on `/data`, presumably using [data only containers](https://docs.docker.com/userguide/dockervolumes/) pattern.
