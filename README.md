@@ -49,7 +49,7 @@ This container is configured to run your service(s) both in interactive and non-
 
 ## Author
 
-Author: ryzy (<marcin@m12.io>)  
-Author: pozgo (<linux@ozgo.info>)
+Author: Marcin Ryzycki (<marcin@m12.io>)  
+Author: Przemyslaw Ozgo (<linux@ozgo.info>)
 
 This work is also inspired by [maxexcloo](https://github.com/maxexcloo)'s work on his [docker images](https://github.com/maxexcloo/Docker). Thanks!

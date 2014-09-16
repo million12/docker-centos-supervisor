@@ -6,7 +6,7 @@ set -e
 # as container might start with /data mounted from another data-container).
 mkdir -p /data/run /data/logs
 
-if [ "$(ls -A /config/init)" ]; then
+if [ "$(ls /config/init/)" ]; then
   for init in /config/init/*.sh; do
     . $init
   done

@@ -11,11 +11,7 @@ RUN \
   easy_install supervisor && \
   mkdir -p /etc/supervisord.d /var/log/supervisor
 
-
-# Bootstrap
-RUN mkdir -p /config/init /config/data /config/temp
-ADD config/ /config/
-
-ADD supervisord.conf /etc/supervisord.conf
+# Add supervisord conf, bootstrap.sh files
+ADD container-files /
 
 CMD ["/config/bootstrap.sh"]
