@@ -13,4 +13,4 @@ RUN \
 # Add supervisord conf, bootstrap.sh files
 ADD container-files /
 
-CMD ["/config/bootstrap.sh"]
+ENTRYPOINT ["/config/bootstrap.sh"]
