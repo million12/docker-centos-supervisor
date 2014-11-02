@@ -1,0 +1,28 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  cache_directories:
+    - "~/docker"
+
+  pre:
+    - docker info && docker version
+    # Cache some Docker images to make builds faster
+    - mkdir -p ~/docker
+    # Cache tutum/mariadb
+    - if [[ -e ~/docker/centos.tar ]]; then docker load -i ~/docker/centos.tar; else docker pull centos:centos7 && docker save centos:centos7 > ~/docker/centos.tar; fi
+    
+  override:
+    - docker pull centos:centos7
+
+# Run tests
+test:
+  pre:
+    # Build million12/typo3-neos-abstract image
+    - docker build -t million12/centos-supervisor .
+
+  override:
+    - docker run -it million12/centos-supervisor "ps aux"
+    - docker run -d million12/centos-supervisor
+    - docker run -d million12/centos-supervisor "ps aux"

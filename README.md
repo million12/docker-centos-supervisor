@@ -1,4 +1,5 @@
 # CentOS-7 with supervisord launcher | Docker
+[![Circle CI](https://circleci.com/gh/million12/docker-centos-supervisor.png?style=badge)](https://circleci.com/gh/million12/docker-centos-supervisor)
 
 This is a CentOS-7 Docker [million12/centos-supervisor](https://registry.hub.docker.com/u/million12/centos-supervisor/) image, perfect in case when you need to launch more then one process inside a container. This image is based on official [centos:centos7](https://registry.hub.docker.com/_/centos/) and it adds only ca. 20MB on top of it.
 
