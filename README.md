@@ -68,6 +68,9 @@ As explained above, this container is configured to run your service(s) both in 
 ## Author
 
 Author: Marcin Ryzycki (<marcin@m12.io>)  
-Author: Przemyslaw Ozgo (<linux@ozgo.info>)
-
+Author: Przemyslaw Ozgo (<linux@ozgo.info>)  
 This work is also inspired by [maxexcloo](https://github.com/maxexcloo)'s work on his [docker images](https://github.com/maxexcloo/Docker). Many thanks!
+
+---
+
+**Sponsored by** [Typostrap.io - the new prototyping tool](http://typostrap.io/) for building highly-interactive prototypes of your website or web app. Built on top of TYPO3 Neos CMS and Zurb Foundation framework.
