@@ -19,10 +19,10 @@ dependencies:
 # Run tests
 test:
   pre:
-    # Build million12/typo3-neos-abstract image
+    # Build million12/centos-supervisor image
     - docker build -t million12/centos-supervisor .
 
   override:
-    - docker run -it million12/centos-supervisor "ps aux"
     - docker run -d million12/centos-supervisor
     - docker run -d million12/centos-supervisor "ps aux"
+    - docker run -it million12/centos-supervisor "ps aux | grep supervisord"
