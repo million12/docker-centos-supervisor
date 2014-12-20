@@ -25,4 +25,7 @@ test:
   override:
     - docker run -d million12/centos-supervisor
     - docker run -d million12/centos-supervisor "ps aux"
+    # Test if supervisord is running
     - docker run -it million12/centos-supervisor "ps aux | grep supervisord"
+    # Test if supervisorctl is working
+    - docker run -it million12/centos-supervisor "supervisorctl stop all"
