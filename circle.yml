@@ -29,3 +29,6 @@ test:
     - docker run -it million12/centos-supervisor "ps aux | grep supervisord"
     # Test if supervisorctl is working
     - docker run -it million12/centos-supervisor "supervisorctl stop all"
+    
+    # Test if we have inotify working
+    - docker run -it million12/centos-supervisor "inotifywatch -t 1 /home | tee /tmp/out"
