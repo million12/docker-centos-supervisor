@@ -9,7 +9,8 @@ SUPERVISOR_PARAMS='-c /etc/supervisord.conf'
 
 # Create directories for supervisor's UNIX socket and logs (which might be missing
 # as container might start with /data mounted from another data-container).
-mkdir -p /data/run /data/logs
+mkdir -p /data/conf /data/run /data/logs
+chmod 711 /data/conf /data/run /data/logs
 
 if [ "$(ls /config/init/)" ]; then
   for init in /config/init/*.sh; do
