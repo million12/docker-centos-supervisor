@@ -9,7 +9,7 @@ MAINTAINER Marcin Ryzycki marcin@m12.io, Przemyslaw Ozgo linux@ozgo.info
 RUN \
   yum update -y && \
   yum install -y epel-release && \
-  yum install -y net-tools python-setuptools hostname inotify-tools yum-utils && \
+  yum install -y net-tools python-setuptools hostname inotify-tools yum-utils which && \
   yum clean all && \
 
   easy_install supervisor
