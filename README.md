@@ -1,10 +1,10 @@
 # CentOS-7 with supervisord launcher | Docker
-[![CircleCI Build Status](https://img.shields.io/circleci/project/million12/docker-centos-supervisor/master.svg)](https://circleci.com/gh/millio12/docker-centos-supervisor)
+[![CircleCI Build Status](https://img.shields.io/circleci/project/million12/docker-centos-supervisor/master.svg)](https://circleci.com/gh/million12/docker-centos-supervisor)
 [![GitHub Open Issues](https://img.shields.io/github/issues/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor)
 [![GitHub Forks](https://img.shields.io/github/forks/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor)
 [![Stars on Docker Hub](https://img.shields.io/docker/stars/million12/centos-supervisor.svg)](https://hub.docker.com/r/million12/centos-supervisor)
-[![Pulls on Docker Hub](https://img.shields.io/docker/pulls/million12/centos-supervisor.svg)](https://hub.docker.com/r/million12/centos-supervisor)  
+[![Pulls on Docker Hub](https://img.shields.io/docker/pulls/million12/centos-supervisor.svg)](https://hub.docker.com/r/million12/centos-supervisor)
 [![Docker Layers](https://badge.imagelayers.io/million12/centos-supervisor:latest.svg)](https://hub.docker.com/r/million12/centos-supervisor)
 
 [Docker Image](https://registry.hub.docker.com/u/million12/gitbucket/) with GitBucket server using [million12/nginx](https://hub.docker.com/r/million12/nginx/) docker image as base. (HTTP2 and HAProxy SSL termination ready.)
