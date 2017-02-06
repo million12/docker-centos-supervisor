@@ -1,5 +1,4 @@
 FROM centos:centos7
-MAINTAINER Marcin Ryzycki marcin@m12.io, Przemyslaw Ozgo linux@ozgo.info
 
 # - Install basic packages (e.g. python-setuptools is required to have python's easy_install)
 # - Install yum-utils so we have yum-config-manager tool available
