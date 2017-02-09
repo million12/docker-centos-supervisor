@@ -24,7 +24,6 @@ RUN \
   easy_install supervisor
 
 # Add supervisord conf, bootstrap.sh files
-VOLUME ["/data"]
 COPY container-files /
 
 ENTRYPOINT ["/config/bootstrap.sh"]
