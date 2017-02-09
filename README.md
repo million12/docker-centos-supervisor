@@ -1,5 +1,11 @@
 # CentOS-7 with supervisord launcher | Docker
-[![Circle CI](https://circleci.com/gh/million12/docker-centos-supervisor.svg?style=svg)](https://circleci.com/gh/million12/docker-centos-supervisor)
+[![CircleCI Build Status](https://img.shields.io/circleci/project/million12/docker-centos-supervisor/master.svg)](https://circleci.com/gh/million12/docker-centos-supervisor)
+[![GitHub Open Issues](https://img.shields.io/github/issues/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor/issues)
+[![GitHub Stars](https://img.shields.io/github/stars/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor)
+[![GitHub Forks](https://img.shields.io/github/forks/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor)  
+[![Stars on Docker Hub](https://img.shields.io/docker/stars/million12/centos-supervisor.svg)](https://hub.docker.com/r/million12/centos-supervisor)
+[![Pulls on Docker Hub](https://img.shields.io/docker/pulls/million12/centos-supervisor.svg)](https://hub.docker.com/r/million12/centos-supervisor)  
+[![Docker Layers](https://badge.imagelayers.io/million12/centos-supervisor:latest.svg)](https://hub.docker.com/r/million12/centos-supervisor)
 
 This is a CentOS-7 Docker [million12/centos-supervisor](https://registry.hub.docker.com/u/million12/centos-supervisor/) image, perfect in case when you need to launch more then one process inside a container. This image is based on official [centos:centos7](https://registry.hub.docker.com/_/centos/) and it adds only ca. 20MB on top of it.
 
@@ -17,7 +23,7 @@ By default, the **CMD** option in Dockerfile is empty, but the bootstrap.sh scri
 
 ##### - supervisord
 
-Supervisord is installed and loads services to run from `/etc/supervisor.d/` directory. Add your own files there to launch your services. For example in your `Dockerfile` you could put:  
+Supervisord is installed and loads services to run from `/etc/supervisor.d/` directory. Add your own files there to launch your services. For example in your `Dockerfile` you could put:
 ```ADD my-supervisord-service.conf /etc/supervisord.d/my-supervisord-service.conf```
 
 Learn more about about [supervisord inside containers on official Docker documentation](https://docs.docker.com/articles/using_supervisord/).
@@ -36,7 +42,7 @@ This is probably the best approach if you would like to source your logs from ou
 
 The `/data` directory is meant to be used to simply and easily deploy web applications using a volume binding on `/data`, presumably using [data only containers](https://docs.docker.com/userguide/dockervolumes/) pattern.
 
-Recommended structure:  
+Recommended structure:
 ```
 /data/run/ # pid, sockets
 /data/conf/ # extra configs for your services
@@ -48,7 +54,7 @@ Recommended structure:
 ## Usage
 
 As explained above, this container is configured to run your service(s) both in interactive and non-interactive modes.
-  
+
 `docker run -it million12/centos-supervisor`: runs supervisord, then interactive bash shell and waits for user's input. Exiting from the shell kills the container.
 
 `docker run -it million12/centos-supervisor ps aux`:  runs supervisord, then `ps aux` command inside container and exists.
