@@ -3,32 +3,28 @@ machine:
     - docker
 
 dependencies:
-  cache_directories:
-    - "~/docker"
-
-  pre:
-    - docker info && docker version
-    # Cache some Docker images to make builds faster
-    - mkdir -p ~/docker
-    # Cache centos:centos7
-    - if [[ -e ~/docker/centos.tar ]]; then docker load -i ~/docker/centos.tar; else docker pull centos:centos7 && docker save centos:centos7 > ~/docker/centos.tar; fi
-    
   override:
-    - docker pull centos:centos7
+    # Build Centos version
+    - RELEASE=$(grep "SUPERVISOR_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}'); docker build -t million12/centos-supervisor:$RELEASE centos/
+    - docker build -t million12/centos-supervisor:latest centos/
+    # Build Alpine Version
+    - echo "TBA"
 
 # Run tests
 test:
-  pre:
-    # Build million12/centos-supervisor image
-    - docker build -t million12/centos-supervisor .
-
   override:
-    - docker run -d million12/centos-supervisor
-    - docker run -d million12/centos-supervisor "ps aux"
+    - docker run -d --name centos million12/centos-supervisor:latest && sleep 5 
     # Test if supervisord is running
-    - docker run -it million12/centos-supervisor "ps aux | grep supervisord"
+    - while true; do if docker logs centos | grep "supervisord started with pid"; then break; else sleep 1; fi done
     # Test if supervisorctl is working
-    - docker run -it million12/centos-supervisor "supervisorctl stop all"
-    
+    - docker exec -i centos bash -c "supervisorctl version"
     # Test if we have inotify working
-    - docker run -it million12/centos-supervisor "inotifywatch -t 1 /home | tee /tmp/out"
+    - docker exec -i centos bash -c "inotifywatch -t 1 /home | tee /tmp/out"
+
+deployment:
+  production:
+    branch:
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - RELEASE=$(grep "SUPERVISOR_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}'); docker push million12/centos-supervisor:$RELEASE
+      - docker push million12/centos-supervisor:latest
