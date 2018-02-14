@@ -17,9 +17,9 @@ test:
     # Test if supervisord is running
     - while true; do if docker logs centos | grep "supervisord started with pid"; then break; else sleep 1; fi done
     # Test if supervisorctl is working
-    - docker exec centos bash -c "supervisorctl version"
+    - docker exec -ti centos bash -c "supervisorctl version"
     # Test if we have inotify working
-    - docker exec centos bash -c "inotifywatch -t 1 /home | tee /tmp/out"
+    - docker exec -ti centos bash -c "inotifywatch -t 1 /home | tee /tmp/out"
 
 deployment:
   production:
