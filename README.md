@@ -2,7 +2,8 @@
 [![Build Status](https://travis-ci.org/million12/docker-centos-supervisor.svg?branch=master)](https://travis-ci.org/million12/docker-centos-supervisor)
 [![GitHub Open Issues](https://img.shields.io/github/issues/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor)
-[![GitHub Forks](https://img.shields.io/github/forks/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor)  
+[![GitHub Forks](https://img.shields.io/github/forks/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmillion12%2Fdocker-centos-supervisor.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmillion12%2Fdocker-centos-supervisor?ref=badge_shield)
+ 
 [![Stars on Docker Hub](https://img.shields.io/docker/stars/million12/centos-supervisor.svg)](https://hub.docker.com/r/million12/centos-supervisor)
 [![Pulls on Docker Hub](https://img.shields.io/docker/pulls/million12/centos-supervisor.svg)](https://hub.docker.com/r/million12/centos-supervisor)  
 [![](https://img.shields.io/github/release/million12/docker-centos-supervisor.svg)](http://microbadger.com/images/million12/docker-centos-supervisor)  
@@ -88,3 +89,7 @@ Author: Marcin Ryzycki (<marcin@m12.io>)
 Author: Przemyslaw Ozgo (<linux@ozgo.info>)  
 This work is also inspired by [maxexcloo](https://github.com/maxexcloo)'s work on his [docker images](https://github.com/maxexcloo/Docker). Many thanks!
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmillion12%2Fdocker-centos-supervisor.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmillion12%2Fdocker-centos-supervisor?ref=badge_large)
