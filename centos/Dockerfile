@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-ENV SUPERVISOR_VERSION=3.3.3
+ENV SUPERVISOR_VERSION=4.0.2
 
 RUN \
   rpm --rebuilddb && yum clean all; \
