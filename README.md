@@ -8,7 +8,7 @@
 [![](https://img.shields.io/github/release/million12/docker-centos-supervisor.svg)](http://microbadger.com/images/million12/docker-centos-supervisor)  
 [![Docker build](http://dockeri.co/image/million12/centos-supervisor)](https://hub.docker.com/r/million12/centos-supervisor/)
 
-This is a CentOS-7 Docker [million12/centos-supervisor](https://registry.hub.docker.com/u/million12/centos-supervisor/) image, perfect in case when you need to launch more then one process inside a container. This image is based on official [centos:centos7](https://registry.hub.docker.com/_/centos/) and it adds only ca. 20MB on top of it.
+This is a CentOS-7 Docker [million12/centos-supervisor](https://registry.hub.docker.com/u/million12/centos-supervisor/) image, perfect in case when you need to launch more then one process inside a container. This image is based on official [centos:centos7](https://registry.hub.docker.com/_/centos/) with basic debugging tools.
 
 ## What's included
 
@@ -51,6 +51,16 @@ Recommended structure:
 /data/www/ # your web application data
 ```
 
+##### - additional tools
+
+- `jq`
+- `rsync`
+- `telnet`
+- `htop`
+- `atop`
+- `iotop`
+- `mtr`
+- `vim`
 
 ## Usage
 
