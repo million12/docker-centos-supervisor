@@ -1,31 +1,29 @@
 services:
-  - docker
-
+- docker
 jobs:
   include:
-    - stage: build&test
-      script:
-        # Build Centos version
-        - docker build -t million12/centos-supervisor:stage centos/
-        # Build Alpine Version
-        - echo "TBA"
-        - docker run -d --name centos million12/centos-supervisor:stage && sleep 5 
-        # Test if supervisord is running
-        - while true; do if docker logs centos | grep "supervisord started with pid"; then break; else sleep 1; fi done
-        # Test if supervisorctl is working
-        - docker exec -i centos bash -c "supervisorctl version"
-        # Test if we have inotify working
-        - docker exec -i centos bash -c "inotifywatch -t 1 /home | tee /tmp/out"
-        # Cahce Image on Docker Hub
-        - docker login -u $DOCKER_USER -p $DOCKER_PASS
-        - docker push million12/centos-supervisor:stage
-
-    - stage: deploy
-      if: branch = master
-      script:
-        - docker login -u $DOCKER_USER -p $DOCKER_PASS
-        - docker pull million12/centos-supervisor:stage
-        - docker tag million12/centos-supervisor:stage million12/centos-supervisor:latest
-        - RELEASE=$(grep "SUPERVISOR_VERSION=" centos/Dockerfile | sed 's|^.*=||g' |awk '{print $1}'); docker tag million12/centos-supervisor:latest million12/centos-supervisor:${RELEASE}
-        - docker push million12/centos-supervisor:latest
-        - RELEASE=$(grep "SUPERVISOR_VERSION=" centos/Dockerfile | sed 's|^.*=||g' |awk '{print $1}'); docker push million12/centos-supervisor:${RELEASE}
+  - stage: build&test
+    script:
+    - docker build -t million12/centos-supervisor:stage centos/
+    - echo "TBA"
+    - docker run -d --name centos million12/centos-supervisor:stage && sleep 5
+    - while true; do if docker logs centos | grep "supervisord started with pid";
+      then break; else sleep 1; fi done
+    - docker exec -i centos bash -c "supervisorctl version"
+    - docker exec -i centos bash -c "inotifywatch -t 1 /home | tee /tmp/out"
+    - docker login -u $DOCKER_USER -p $DOCKER_PASS
+    - docker push million12/centos-supervisor:stage
+  - stage: deploy
+    if: branch = master
+    script:
+    - docker login -u $DOCKER_USER -p $DOCKER_PASS
+    - docker pull million12/centos-supervisor:stage
+    - docker tag million12/centos-supervisor:stage million12/centos-supervisor:latest
+    - RELEASE=$(grep "SUPERVISOR_VERSION=" centos/Dockerfile | sed 's|^.*=||g' |awk
+      '{print $1}'); docker tag million12/centos-supervisor:latest million12/centos-supervisor:${RELEASE}
+    - docker push million12/centos-supervisor:latest
+    - RELEASE=$(grep "SUPERVISOR_VERSION=" centos/Dockerfile | sed 's|^.*=||g' |awk
+      '{print $1}'); docker push million12/centos-supervisor:${RELEASE}
+notifications:
+  slack:
+    secure: T+ghuuH8mbj1Qn8cyf/xOeLbIHge0VhB6Sx/uu5gLZW2OwkoW4YOzoDrfH4ldoHUjRodgmScQn9AEuPrkYigBfafVfV4Zq6kI2ILVda/sFUONslvukGwD+4iFfPPQTzVOmzj15Nl3cHrwX6+GC1YDUAw0S7WaR3WHtC8CGp7K9c=
