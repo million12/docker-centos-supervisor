@@ -5,7 +5,8 @@
 [![GitHub Forks](https://img.shields.io/github/forks/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor)  
 [![Stars on Docker Hub](https://img.shields.io/docker/stars/million12/centos-supervisor.svg)](https://hub.docker.com/r/million12/centos-supervisor)
 [![Pulls on Docker Hub](https://img.shields.io/docker/pulls/million12/centos-supervisor.svg)](https://hub.docker.com/r/million12/centos-supervisor)  
-[![Docker Layers](https://badge.imagelayers.io/million12/centos-supervisor:latest.svg)](https://hub.docker.com/r/million12/centos-supervisor)
+[![](https://img.shields.io/github/release/million12/docker-centos-supervisor.svg)](http://microbadger.com/images/million12/docker-centos-supervisor)  
+[![Docker build](http://dockeri.co/image/million12/centos-supervisor)](https://hub.docker.com/r/million12/centos-supervisor/)
 
 This is a CentOS-7 Docker [million12/centos-supervisor](https://registry.hub.docker.com/u/million12/centos-supervisor/) image, perfect in case when you need to launch more then one process inside a container. This image is based on official [centos:centos7](https://registry.hub.docker.com/_/centos/) and it adds only ca. 20MB on top of it.
 
@@ -71,12 +72,9 @@ As explained above, this container is configured to run your service(s) both in 
 `docker build --tag=million12/centos-supervisor .`
 
 
-## Author
+## Authors
 
 Author: Marcin Ryzycki (<marcin@m12.io>)  
 Author: Przemyslaw Ozgo (<linux@ozgo.info>)  
 This work is also inspired by [maxexcloo](https://github.com/maxexcloo)'s work on his [docker images](https://github.com/maxexcloo/Docker). Many thanks!
 
----
-
-**Sponsored by [Prototype Brewery](http://prototypebrewery.io/)** - the new prototyping tool for building highly-interactive prototypes of your website or web app. Built on top of [Neos CMS](https://www.neos.io/) and [Zurb Foundation](http://foundation.zurb.com/) framework.
