@@ -1,5 +1,5 @@
 # CentOS-7 with supervisord launcher | Docker
-[![CircleCI Build Status](https://img.shields.io/circleci/project/million12/docker-centos-supervisor/master.svg)](https://circleci.com/gh/million12/docker-centos-supervisor)
+[![Build Status](https://travis-ci.org/million12/docker-centos-supervisor.svg?branch=master)](https://travis-ci.org/million12/docker-centos-supervisor)
 [![GitHub Open Issues](https://img.shields.io/github/issues/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor)
 [![GitHub Forks](https://img.shields.io/github/forks/million12/docker-centos-supervisor.svg)](https://github.com/million12/docker-centos-supervisor)  
