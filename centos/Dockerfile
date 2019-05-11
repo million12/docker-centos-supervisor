@@ -14,7 +14,13 @@ RUN \
     yum-utils \
     which \
     jq \
-    rsync; \
+    rsync \
+    telnet \
+    htop \
+    atop \
+    iotop \
+    mtr \
+    vim && \
   yum clean all && rm -rf /tmp/yum*; \
   easy_install pip; \
   pip install supervisor==${SUPERVISOR_VERSION}
